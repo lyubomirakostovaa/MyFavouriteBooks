@@ -1,10 +1,10 @@
-class Book < ApplicationRecord
-    def self.all_genres ; %w['Science fiction' 'Drama' 'Action and Adventure' 'Romance' 'Mystery' 'Horror'] ; end
+class Book <  ActiveRecord::Base
+    def self.all_genres ; ['Science fiction', 'Drama', 'Action and Adventure', 'Romance', 'Mystery', 'Horror'] ; end
     validates :title, :presence => true
     validates :publish_date, :presence => true
     validate :published_1967_or_later 
-    validates :isbn, :unless => :grandfathered?
-    validate :genre, :inclusion  => {:in => Book.all_genres}
+    validates :isbn, :presence => true, :unless => :grandfathered?
+    validates :genre, :presence => true, :inclusion  => {:in => Book.all_genres}
    
     def published_1967_or_later
       errors.add(:publish_date, 'must be 1967 or later') if
