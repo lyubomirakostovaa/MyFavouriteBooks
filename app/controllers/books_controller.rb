@@ -17,8 +17,12 @@ class BooksController < ApplicationController
     params.require(:book)
     permitted = params[:book].permit(:title,:genre,:publish_date,:isbn)
     @book = Book.create!(permitted)
+    if @book.save
     flash[:notice] = "#{@book.title} was successfully created."
     redirect_to books_path
+    else
+    render 'new'
+    end
   end
 
   def edit
@@ -26,12 +30,15 @@ class BooksController < ApplicationController
   end
    
   def update
-    @book = Book.find params[:id]
+  @book = Book.find params[:id]
     params.require(:book)
     permitted = params[:book].permit(:title,:genre,:publish_date,:isbn)
-    @book.update_attributes!(permitted)
+    if @book.update_attributes(permitted)
     flash[:notice] = "#{@book.title} was successfully updated."
     redirect_to book_path(@book)
+    else
+    render 'edit'
+    end
   end
 
   def destroy
