@@ -21,6 +21,12 @@ module NavigationHelpers
     when /^the Create New Book page/
       '/books/new'
 
+    when /^the edit page for "([^"]+)"$/
+      edit_book_path(Book.find_by_title($1).id)
+      
+    when /^the details page for "(.*)"/ 
+      book_path(Book.find_by_title($1).id)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
