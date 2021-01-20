@@ -1,5 +1,3 @@
-= link_to 'Add new book', new_book_path
-
 %h2 Create New Book
 
 = form_tag books_path, :method => :post do
@@ -12,3 +10,5 @@
 
   = render :partial => 'book_form'
   = submit_tag 'Save Changes'
+
+  = link_to 'Back to book list', books_path
