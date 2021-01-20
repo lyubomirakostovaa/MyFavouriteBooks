@@ -180,7 +180,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   pg
   puma (~> 4.1)
-  rails (~> 6.0.3, >= 6.0.3.4)
+  rails (= 6.0.3.4)
   sass-rails (>= 6)
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
