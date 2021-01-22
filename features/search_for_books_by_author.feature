@@ -6,12 +6,12 @@ Feature: search for books by author
  
 Background: books in database
  
-  Given the following books exist:
-  | title        | genre                    | author       | publish_date |
-  | Star Wars    | Science Fiction          | George Lucas |   1977-05-25 |
-  | Blade Runner | Science Fiction          | Ridley Scott |   1982-06-25 |
-  | Alien        | Action and Adventure     |              |   1979-05-25 |
-  | THX-1138     | Action and Adventure     | George Lucas |   1971-03-11 |
+  Given the following books exist:  
+  | title        | genre                    | author       | publish_date | isbn        |
+  | Star Wars    | Science Fiction          | George Lucas |   1977-05-25 | 126-AWF-879 |
+  | Blade Runner | Science Fiction          | Ridley Scott |   1982-06-25 | 123-APF-879 |
+  | Alien        | Action and Adventure     |              |   1979-05-25 | 123-AHF-879 |
+  | THX-1138     | Action and Adventure     | George Lucas |   1971-03-11 | 123-AWF-898 |
  
 Scenario: add author to existing book
   When I go to the edit page for "Alien"

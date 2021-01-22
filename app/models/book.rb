@@ -16,4 +16,7 @@ class Book <  ActiveRecord::Base
     def grandfathered?
       publish_date && publish_date < @@grandfathered_date
     end
+
+    def self.similar_books(book)
+    end
   end

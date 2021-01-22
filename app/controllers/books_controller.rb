@@ -73,4 +73,9 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def search_similar_books
+    given_book = Book.find(params[:id])
+    @books = Book.similar_books(given_book)
+  end
+
 end
