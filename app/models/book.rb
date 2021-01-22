@@ -18,5 +18,6 @@ class Book <  ActiveRecord::Base
     end
 
     def self.similar_books(book)
+      Book.where author: book.author
     end
   end

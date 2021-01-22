@@ -3,6 +3,6 @@ FactoryBot.define do
       title { 'A Fake Title' } # default values
       genre { 'Romance' }
       publish_date { 10.years.ago }
-      isbn {'123_OPO_897'}
+      isbn {'123-OPO-897'}
     end
   end
