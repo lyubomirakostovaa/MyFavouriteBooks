@@ -20,10 +20,10 @@ Scenario: add author to existing book
   Then the author of "Alien" should be "Ridley Scott"
  
 Scenario: find book with same author
-  Given I am on the details page for "Star Wars"
+  Given I am on the details page for "THX-1138"
   When  I follow "Find Books With Same Author"
-  Then  I should be on the Similar Books page for "Star Wars"
-  And   I should see "THX-1138"
+  Then  I should be on the Similar Books page for "THX-1138"
+  And   I should see "Star Wars"
   But   I should not see "Blade Runner"
  
 Scenario: can't find similar books if we don't know author (sad path)

@@ -14,7 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-  #    '/'
+      '/books'
 
     when /^the MyFavouriteBooks home page/
       '/books'  
