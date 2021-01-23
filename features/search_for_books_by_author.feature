@@ -1,34 +1,34 @@
 Feature: search for books by author
  
-  As a book buff
+  As a book lover
   So that I can find books with my favorite author
-  I want to include and serach on author information in books I enter
+  I want to include and search on author information in books I enter
  
 Background: books in database
  
-  Given the following books exist:  
-  | title        | genre                    | author       | publish_date | isbn        |
-  | Star Wars    | Science Fiction          | George Lucas |   1977-05-25 | 126-AWF-879 |
-  | Blade Runner | Science Fiction          | Ridley Scott |   1982-06-25 | 123-APF-879 |
-  | Alien        | Action and Adventure     |              |   1979-05-25 | 123-AHF-879 |
-  | THX-1138     | Action and Adventure     | George Lucas |   1971-03-11 | 123-AWF-898 |
- 
+  Given the following books exist:
+  | title                 | genre           | author       | publish_date | isbn       |
+  | It                    | Horror          | Stephen King |   1986-09-15 | 123-123-1234 |
+  | The Martian           | Science fiction | Andy Weir    |   2014-02-11 | 987-654-3210 |
+  | To Kill a Mockingbird | Drama           |              |   1960-07-11 |              |
+  | Carrie                | Horror          | Stephen King |   1974-04-05 | 975-310-9876 |
+  | Carrie II             | Horror          |              |   1974-04-05 | 975-310-9876 |
 Scenario: add author to existing book
-  When I go to the edit page for "Alien"
-  And  I fill in "Author" with "Ridley Scott"
+  When I go to the edit page for "Carrie II"
+  And  I fill in "Author" with "Harper Lee"
   And  I press "Update Book Info"
-  Then the author of "Alien" should be "Ridley Scott"
+  Then the author of "Carrie II" should be "Harper Lee"
  
 Scenario: find book with same author
-  Given I am on the details page for "THX-1138"
+  Given I am on the details page for "It"
   When  I follow "Find Books With Same Author"
-  Then  I should be on the Similar Books page for "THX-1138"
-  And   I should see "Star Wars"
-  But   I should not see "Blade Runner"
+  Then  I should be on the Similar Books page for "It"
+  And   I should see "Carrie"
+  But   I should not see "The Martian"
  
 Scenario: can't find similar books if we don't know author (sad path)
-  Given I am on the details page for "Alien"
-  Then  I should not see "Ridley Scott"
+  Given I am on the details page for "Carrie II"
+  Then  I should not see "Harper Lee"
   When  I follow "Find Books With Same Author"
   Then  I should be on the home page
-  And   I should see "'Alien' has no author info"
+  And   I should see "'Carrie II' has no author info"

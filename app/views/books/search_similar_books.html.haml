@@ -7,6 +7,7 @@
       %th Genre
       %th Publish Date
       %th Author
+      %th ISBN Number
       %th More Info
   %tbody
     - @books.each do |book|
@@ -15,4 +16,5 @@
         %td= book.genre
         %td= book.publish_date
         %td= book.author
+        %td= book.isbn
         %td= link_to "More about #{book.title}", book_path(book)
