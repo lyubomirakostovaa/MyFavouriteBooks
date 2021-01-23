@@ -30,7 +30,7 @@ describe BooksController do
     end
   end
   it "redirects to books_path with warning" do
-    given_book = double("Book_1", title: 'Star Wars', director: '')
+    given_book = double("Book_1", title: 'Star Wars', author: '')
     expect(Book).to receive(:find).with("1").and_return(given_book)
     get :search_similar_books, params: {id:1}
     expect(flash[:warning]).to eq "'#{given_book.title}' has no author info"

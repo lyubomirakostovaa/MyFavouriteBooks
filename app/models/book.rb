@@ -5,6 +5,7 @@ class Book <  ActiveRecord::Base
     validate :published_1967_or_later 
     validates :isbn, :presence => true, :unless => :grandfathered?
     validates :genre, :presence => true, :inclusion  => {:in => Book.all_genres}
+    validates :author, :presence => false
    
     def published_1967_or_later
       errors.add(:publish_date, 'must be 1967 or later') if

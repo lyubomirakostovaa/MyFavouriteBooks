@@ -74,7 +74,7 @@ class BooksController < ApplicationController
   end
 
   def search_similar_books
-    given_book = Book.find(params[:id])
+    @book = Book.find(params[:id])
     if @book.author.nil? || @book.author.empty?
       flash[:warning]= "'#{@book.title}' has no author info"
       redirect_to books_path
