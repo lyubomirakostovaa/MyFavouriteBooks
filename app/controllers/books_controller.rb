@@ -40,6 +40,7 @@ class BooksController < ApplicationController
 
   def create
     params.require(:book)
+    params[:book][:title] = params[:book][:title].split(' ').map(&:capitalize).join(' ') 
     permitted = params[:book].permit(:title,:genre,:publish_date,:isbn,:author)
     @book = Book.create!(permitted)
     if @book.save
